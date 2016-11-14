@@ -4,13 +4,32 @@
 
 ## When create a project for the web application using the Visual studio
   - When name the file use the same case as nameSpace camal case and conventionally name the file after the namespace
-
+  - When create a class = create a new file
 ## Solution is a collection of the projects. Most apps have more than one project.  
   - Add source control check box put projects in the directory
 
 ## Then Choose which visual studio version to use
 
-## Github ... choose gitignor file to Visual studio 
+## Github ... choose gitignor file to Visual studio
+ - add commit by go to file source control - commit
+ - Solution Explore - we can view the detail of the changes before commit
+ - Source Control -view history
+ - to view all changes go to right click on the commit view commit detail
+ - we can also revert the commit to previous commit and get the file that was deleted back
+ - to push the changes to github ex: We create new branch, we can right click on the branch and click on publish to add to github
+ - click on sync to update the commit of all the changes
+ - we can also merge
+ - if there's conflict ..we can also look at annotated to see who made the commit that has conflict
+
+### Resources
+Resources
+
+- Share Your Projects with GitHub Destktop Workshop
+- Git Basics Course
+- Git Command Line Tools
+- Up-For-Grabs.NET
+- .NET Open Source Developer Projects
+
 
 # .NET - create new application
 
@@ -18,7 +37,7 @@
 create new PROJECT in powershell
 md newproject
 cd newproject
-dotnet new
+dotnet new (or dotnet new -t web //type can also get help by dotnet new --help)
 
 - we need to restore some packages by telling what's pkges will be use"
 - update project.json file by
@@ -94,7 +113,10 @@ run dotNet restore
 run dotNet watch run
 
 ```
-## more info go to dot.Net documentation
+## How Kestrel works
+- Browser make a call to IIS -> to Kestrel(to reload page) <-connect to dotNetCore
+
+## more info go to .Net documentation
 
 # Visual Studio Keyboard Shortcuts
 | Command | Key

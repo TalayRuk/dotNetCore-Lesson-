@@ -115,7 +115,26 @@ run dotNet watch run
 ```
 ## How Kestrel works
 - Browser make a call to IIS -> to Kestrel(to reload page) <-connect to dotNetCore
+- IIS express = manage life cycle of the application
+  - if the kestrel crash, IIS will bring it back (it can be switch btwn IIS & Kestrel to run - kestrel run the small parts)
+  - there's IIS in project.json file
+  -if program is edited while it's running will it change w/Kestrel?
+    -No; if dotNetWatch is not running
+    -but it'll change if change to IIS
+    -this is how we break up the responsibility into smaller portion like Online store
+    - IIS also run on diff localhost
+# ASP.Net Core Middleware = most dependencies which are building block
+  - Any ASP.Net that changes the pipeline from the moment the response goes in until the moment the response goes back is a piece of middleware
 
+## To write specific route either "string" or int
+    ...
+    routeBuilder.MapGet("post/{postNumber:int}", context => context.Response.WriteAsync($"Blog post id: {context.GetRouteValue("postNumber")}"));
+    //int is a rule/validation to limit input can only be int in order for the route name to work. Without int .. letter can be inputted. You can also give it more detail using RegExpression. If the input doesn't match the postNumber's rule, the web will break & show 404
+
+    - *Debugging Route ...* **Remember that** _Order does matter, which one comes first can change everything. Route can be greedy; like "postNumber" w/o specifying that's it int only ... it'll take in everything b/c it just take it in as string_
+
+# MVC is middleware b/c it's a pipeline
+- when pic the Nuget .. don't get the MVC.core ..just use the MVC 
 ## more info go to .Net documentation
 
 # Visual Studio Keyboard Shortcuts
